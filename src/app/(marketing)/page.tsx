@@ -29,7 +29,7 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <LeadWizard variant="hero" />
+              <LeadWizard />
             </div>
           </div>
         </div>
