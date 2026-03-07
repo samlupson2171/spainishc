@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'rtmicon';
+  src: url('/font/rtmicon/rtmicon.woff') format('woff'),
+       url('/font/rtmicon/rtmicon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --accent-color: #c9a227;
+  --accent-color-2: #d4af37;
+  --text-color: #1a1a2e;
+  --text-color-2: #666;
+  --bg-light: #f8f9fa;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text-color);
+}
+
+.accent-color { color: var(--accent-color); }
+.bg-accent-color { background-color: var(--accent-color); }
+.bg-text-color { background-color: var(--text-color); }
+
+.btn-accent {
+  @apply bg-[#c9a227] text-white hover:bg-[#b8921f] transition-colors px-6 py-3 font-medium;
+}
+
+.btn-white-accent {
+  @apply bg-white text-[#c9a227] hover:bg-gray-100 transition-colors px-6 py-3 font-medium border border-[#c9a227];
+}
+
+.section {
+  @apply py-16 md:py-20;
+}
+
+.r-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.bg-overlay {
+  @apply absolute inset-0 bg-black/60;
+}
+
+.bg-overlay-2 {
+  @apply absolute inset-0 bg-[#1a1a2e]/90;
+}
+
+/* Form styles */
+.form-control {
+  @apply w-full pr-4 py-3 border border-gray-300 rounded-lg focus:border-[#c9a227] focus:ring-1 focus:ring-[#c9a227] outline-none transition-colors;
+  padding-left: 2.75rem;
+}
+
+.form-control.error {
+  @apply border-red-500;
+}
+
+/* Card styles */
+.card-service {
+  @apply bg-white shadow-lg hover:shadow-xl transition-shadow;
+}
+
+/* Icon box */
+.icon-box {
+  @apply w-16 h-16 bg-[#c9a227] flex items-center justify-center text-white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Confetti animation */
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  animation: confetti-fall 3s ease-out forwards;
 }
