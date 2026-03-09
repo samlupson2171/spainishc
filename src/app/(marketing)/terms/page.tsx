@@ -62,7 +62,7 @@ export default function TermsPage() {
 
             <h2 className="text-[#1a1a2e]">7. Governing Law</h2>
             <p>
-              Spanish (Andalusia jurisdiction). Changes reserved. Contact for questions at hello@spanishconveyancing.es.
+              Spanish (Andalusia jurisdiction). Changes reserved. Contact for questions at info@spanishconveyancing.es.
             </p>
           </div>
         </div>

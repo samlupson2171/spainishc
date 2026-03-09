@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
+import { Phone, Mail, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1a2e] text-white">
+    <footer className="bg-white text-[#1a1a2e] border-t border-gray-200">
       <div className="section pb-8">
         <div className="r-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-white/20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-200">
             {/* Logo & About */}
-            <div className="lg:col-span-1">
+            <div>
               <Image src="/images/image001.png" alt="Spanish Conveyancing" width={180} height={45} className="mb-4" />
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-600 text-sm">
                 Connecting Costa del Sol estate agents with vetted Spanish conveyancing lawyers. Earn 20-25% commission on referrals.
               </p>
             </div>
@@ -20,20 +20,8 @@ export default function Footer() {
             <div>
               <h5 className="text-lg font-semibold mb-4 text-[#c9a227]">Quick Links</h5>
               <ul className="space-y-2">
-                <li><Link href="/" className="text-gray-300 hover:text-[#c9a227] transition-colors">Home</Link></li>
-                <li><Link href="/services" className="text-gray-300 hover:text-[#c9a227] transition-colors">Services</Link></li>
-                <li><Link href="/market" className="text-gray-300 hover:text-[#c9a227] transition-colors">Market Insights</Link></li>
-                <li><Link href="/agents" className="text-gray-300 hover:text-[#c9a227] transition-colors">For Agents</Link></li>
-                <li><Link href="/contact" className="text-gray-300 hover:text-[#c9a227] transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-
-            {/* Legal */}
-            <div>
-              <h5 className="text-lg font-semibold mb-4 text-[#c9a227]">Legal</h5>
-              <ul className="space-y-2">
-                <li><Link href="/terms" className="text-gray-300 hover:text-[#c9a227] transition-colors">Terms & Conditions</Link></li>
-                <li><Link href="/privacy" className="text-gray-300 hover:text-[#c9a227] transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/" className="text-gray-600 hover:text-[#c9a227] transition-colors">Home</Link></li>
+                <li><Link href="/contact" className="text-gray-600 hover:text-[#c9a227] transition-colors">Contact</Link></li>
               </ul>
             </div>
 
@@ -43,26 +31,29 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
                   <Phone size={18} className="text-[#c9a227]" />
-                  <a href="tel:+34600000000" className="text-gray-300 hover:text-[#c9a227]">+34 600 000 000</a>
+                  <a href="tel:+34693777466" className="text-gray-600 hover:text-[#c9a227]">+34 693 777 466</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail size={18} className="text-[#c9a227]" />
-                  <a href="mailto:hello@spanishconveyancing.es" className="text-gray-300 hover:text-[#c9a227]">hello@spanishconveyancing.es</a>
-                </li>
-                <li className="flex items-center gap-3">
-                  <MapPin size={18} className="text-[#c9a227]" />
-                  <span className="text-gray-300">Costa del Sol, Spain</span>
+                  <a href="mailto:info@spanishconveyancing.es" className="text-gray-600 hover:text-[#c9a227]">info@spanishconveyancing.es</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Instagram size={18} className="text-[#c9a227]" />
-                  <a href="https://instagram.com/spanishconveyancing" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#c9a227]">@spanishconveyancing</a>
+                  <a href="https://instagram.com/spanishconveyancing" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#c9a227]">@spanishconveyancing</a>
                 </li>
               </ul>
             </div>
           </div>
 
+          {/* Disclaimer */}
+          <div className="py-6 border-b border-gray-200">
+            <p className="text-gray-500 text-sm leading-relaxed">
+              Spanish Conveyancing is a trading style of Fountain Finances Limited. This site is owned and operated by Fountain Finances Limited which is registered in England and Wales. Financial Conduct Authority (FCA) registered number: 08069774. Registered office: 1D MacLaren House, Talbot Road, Old Trafford, Manchester, M32 0FP. Information Commissioners Office registration number ZA465505. VAT No. 250 2839 19
+            </p>
+          </div>
+
           {/* Copyright */}
-          <div className="pt-6 text-center text-gray-400 text-sm">
+          <div className="pt-6 text-center text-gray-500 text-sm">
             <p>&copy; {new Date().getFullYear()} Spanish Conveyancing. All rights reserved.</p>
           </div>
         </div>

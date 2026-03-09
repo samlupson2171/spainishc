@@ -3,13 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Menu, X, Phone, MapPin, Instagram } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/market', label: 'Market Insights' },
-  { href: '/agents', label: 'For Agents' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -18,31 +15,8 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-[#c9a227] py-3">
-        <div className="r-container">
-          <div className="flex flex-col md:flex-row justify-between items-center text-white gap-3 text-sm">
-            <div className="flex flex-col md:flex-row gap-3 md:gap-8 items-center">
-              <a href="tel:+34600000000" className="flex items-center gap-2 hover:opacity-80">
-                <Phone size={16} />
-                +34 600 000 000
-              </a>
-              <span className="flex items-center gap-2">
-                <MapPin size={16} />
-                Costa del Sol, Spain
-              </span>
-            </div>
-            <div className="flex gap-4">
-              <a href="https://instagram.com/spanishconveyancing" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                <Instagram size={18} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header */}
-      <header className="sticky top-0 bg-[#1a1a2e] z-50">
+      <header className="sticky top-0 bg-white z-50 shadow-sm">
         <div className="r-container">
           <nav className="flex items-center justify-between py-4">
             <Link href="/" className="flex items-center">
@@ -53,7 +27,7 @@ export default function Header() {
             <ul className="hidden lg:flex items-center gap-8">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-white hover:text-[#c9a227] transition-colors font-medium">
+                  <Link href={item.href} className="text-[#1a1a2e] hover:text-[#c9a227] transition-colors font-medium">
                     {item.label}
                   </Link>
                 </li>
@@ -62,7 +36,7 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-white p-2"
+              className="lg:hidden text-[#1a1a2e] p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -78,7 +52,7 @@ export default function Header() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-white hover:text-[#c9a227] transition-colors block py-2"
+                      className="text-[#1a1a2e] hover:text-[#c9a227] transition-colors block py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}

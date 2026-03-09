@@ -206,11 +206,11 @@ export default function AgentsPage() {
             <div className="bg-[#1a1a2e] p-8 rounded-lg text-white">
               <h4 className="text-xl font-bold mb-4">Get Started Today</h4>
               <p className="text-gray-300 mb-6">
-                Call Damian or David, or submit the form. First 50 get priority intros.
+                Call us or submit the form. First 50 get priority intros.
               </p>
               <div className="space-y-4">
-                <a href="tel:+34600000000" className="block bg-[#c9a227] text-white text-center py-3 rounded font-medium hover:bg-[#b8921f] transition-colors">
-                  Call Now: +34 600 000 000
+                <a href="tel:+34693777466" className="block bg-[#c9a227] text-white text-center py-3 rounded font-medium hover:bg-[#b8921f] transition-colors">
+                  Call Now: +34 693 777 466
                 </a>
                 <Link href="/contact" className="block border border-[#c9a227] text-[#c9a227] text-center py-3 rounded font-medium hover:bg-[#c9a227] hover:text-white transition-colors">
                   Contact Form

@@ -49,7 +49,7 @@ export default function PrivacyPage() {
 
             <h2 className="text-[#1a1a2e]">4. Your Rights</h2>
             <ul>
-              <li>Access, correct, delete via email (hello@spanishconveyancing.es).</li>
+              <li>Access, correct, delete via email (info@spanishconveyancing.es).</li>
               <li>Withdraw consent anytime.</li>
               <li>Complaints: AEPD (Spanish DPA).</li>
             </ul>
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
 
             <h2 className="text-[#1a1a2e]">6. Children</h2>
             <p>
-              No under-16s. Questions? Contact us at hello@spanishconveyancing.es. Changes posted here.
+              No under-16s. Questions? Contact us at info@spanishconveyancing.es. Changes posted here.
             </p>
           </div>
         </div>
