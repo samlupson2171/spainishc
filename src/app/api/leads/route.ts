@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
 import { leadSchema } from '@/lib/schema';
+import { sendLeadNotification } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,8 +20,8 @@ export async function POST(request: NextRequest) {
 
     const result = await leads.insertOne(lead);
 
-    // TODO: Send email notification via Resend
-    // await sendLeadNotification(lead);
+    // Send email notification via Resend
+    await sendLeadNotification(validatedData);
 
     return NextResponse.json({ success: true, id: result.insertedId }, { status: 201 });
   } catch (error) {
