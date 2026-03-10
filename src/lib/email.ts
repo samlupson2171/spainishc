@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const NOTIFICATION_EMAIL = 'info@spanishconveyancing.es';
+const NOTIFICATION_EMAILS = ['david@spanishconveyancing.es', 'damian@spanishconveyancing.es'];
 
 interface LeadData {
   name: string;
@@ -22,7 +22,7 @@ export async function sendLeadNotification(lead: LeadData) {
   try {
     const { data, error } = await resend.emails.send({
       from: 'Spanish Conveyancing <noreply@spanishconveyancing.es>',
-      to: NOTIFICATION_EMAIL,
+      to: NOTIFICATION_EMAILS,
       subject: `New Lead: ${lead.name}`,
       html: `
         <h2>New Lead Received</h2>
