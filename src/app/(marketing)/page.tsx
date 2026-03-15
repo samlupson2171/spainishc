@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import LeadWizard from '@/components/LeadWizard';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, Phone } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -12,12 +12,14 @@ export default function Home() {
         <div className="r-container relative z-10 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
-              <p className="text-[#c9a227] font-medium mb-4">Specialists in Property Conveyancing</p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Partnering With a Select Portfolio of Experienced, <span className="text-[#c9a227]">Multi-lingual Law Firms</span>
+                Specialists in <span className="text-[#c9a227]">Property Conveyancing</span>
               </h1>
-              <p className="text-xl text-gray-200">
-                We collaborate with Estate Agents/Autonomos across Spain, where we pay a referral fee for your clients you placed with one of our partner law firms
+              <p className="text-xl text-gray-200 mb-6">
+                Spanish property lawyers - we provide all the legal conveyancing services you need to ensure a smooth and secure property transaction, from initial verification to final registration, safeguarding your investment at every step.
+              </p>
+              <p className="text-lg text-[#c9a227]">
+                Multiple languages supported: including English, French, Dutch, Swedish, Polish, Russian, Arabic
               </p>
             </div>
             <div>
@@ -27,101 +29,112 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Us */}
-      <section className="section bg-gray-50">
-        <div className="r-container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <Image
-                src="/images/realestate-agent.jpg"
-                alt="Real estate agent"
-                width={600}
-                height={700}
-                className="rounded-lg shadow-xl"
-              />
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#c9a227]">
-                About Us
-              </h2>
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  We are a Spain wide team, based on the Costa Del Sol, connecting one of our Abogados, as the best fit (eg language, source market/culture) for managing the legal elements of your client&apos;s property.
-                </p>
-                <p>
-                  Spanish Conveyancing is a trading brand of Fountain Finances Ltd.
-                </p>
-                <p>
-                  Fountain Finances are a 10 years old, UK FCA Registered Claims Management Company that also set up &apos;Claim in Spain&apos; (2024) to process 10&apos;s of thousands of Mis-sold Spanish Mortgages by Spanish Banks from 2000 to 2019 – specifically for expat Brits and other Europeans.
-                </p>
-                <p>
-                  For the past 2 years, during our Spain wide expansion of the Claim in Spain business, we quickly qualified &amp; selected the best, to establish our portfolio of &apos;Spanish Conveyancing&apos; Lawyers.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What Do Our Portfolio of Lawyers Provide */}
-      <section className="section bg-white">
+      {/* Services Section */}
+      <section id="services" className="section bg-gray-50">
         <div className="r-container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a2e]">
-              What Do Our Portfolio of <span className="text-[#c9a227]">Lawyers Provide?</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a2e] mb-6">
+              Our <span className="text-[#c9a227]">Services</span>
             </h2>
+            <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+              Based on the Costa del Sol, but offering Spain wide services, Spanish Conveyancing provides a full suite of legal services for your Spanish property investment.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d4a] p-8 rounded-xl text-white shadow-lg hover:shadow-xl transition-shadow">
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#c9a227]">
               <div className="w-14 h-14 bg-[#c9a227] rounded-full flex items-center justify-center mb-6">
                 <CheckCircle size={28} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Property Verification</h3>
-              <p className="text-gray-300">Verification &amp; transfer of property ownership - check for outstanding mortgages or debts, planning permissions in order, ensure property is legally registered</p>
+              <h3 className="text-xl font-bold mb-4 text-[#1a1a2e]">Legal Searches</h3>
+              <p className="text-gray-600">Conducting thorough legal searches on the property and the seller to identify any potential issues.</p>
             </div>
-            <div className="bg-gradient-to-br from-[#c9a227] to-[#d4af37] p-8 rounded-xl text-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-6">
-                <CheckCircle size={28} className="text-[#c9a227]" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Contract Management</h3>
-              <p className="text-white/90">Draft and review reservation &amp; private purchase contracts, ensuring terms are fair and protected</p>
-            </div>
-            <div className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d4a] p-8 rounded-xl text-white shadow-lg hover:shadow-xl transition-shadow">
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#c9a227]">
               <div className="w-14 h-14 bg-[#c9a227] rounded-full flex items-center justify-center mb-6">
                 <CheckCircle size={28} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Tax &amp; Registration</h3>
-              <p className="text-gray-300">Obtain necessary NIE for foreign buyers, calculate, file, and pay relevant taxes, and handle the registration of title deeds</p>
+              <h3 className="text-xl font-bold mb-4 text-[#1a1a2e]">Contract Negotiation</h3>
+              <p className="text-gray-600">Negotiating terms and conditions of the purchase to ensure compliance with Spanish laws.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#c9a227]">
+              <div className="w-14 h-14 bg-[#c9a227] rounded-full flex items-center justify-center mb-6">
+                <CheckCircle size={28} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-[#1a1a2e]">Document Preparation</h3>
+              <p className="text-gray-600">Preparing all necessary documents and coordinating with the Notary Public for a seamless completion process.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#c9a227]">
+              <div className="w-14 h-14 bg-[#c9a227] rounded-full flex items-center justify-center mb-6">
+                <CheckCircle size={28} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-[#1a1a2e]">Mortgage Assistance</h3>
+              <p className="text-gray-600">Assisting in obtaining a mortgage loan if needed.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#c9a227]">
+              <div className="w-14 h-14 bg-[#c9a227] rounded-full flex items-center justify-center mb-6">
+                <CheckCircle size={28} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-[#1a1a2e]">NIE Application</h3>
+              <p className="text-gray-600">Securing your NIE (Número de Identificación de Extranjeros) for foreign buyers.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#c9a227]">
+              <div className="w-14 h-14 bg-[#c9a227] rounded-full flex items-center justify-center mb-6">
+                <CheckCircle size={28} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-[#1a1a2e]">Property Clearance</h3>
+              <p className="text-gray-600">Ensuring the property is free of encumbrances, occupants, and outstanding taxes.</p>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d4a] rounded-2xl p-8 md:p-12 text-center">
+            <p className="text-white text-xl mb-4">
+              We speak your language. Multiple nationalities supported, to reflect Spain&apos;s international clientele, including English, French, Dutch, Swedish, Polish, Russian, Arabic.
+            </p>
+            <div className="border-t border-white/20 pt-8 mt-8">
+              <p className="text-[#c9a227] text-2xl font-bold mb-2">Conveyancing Fee</p>
+              <p className="text-white text-lg mb-6">Standard conveyancing fee is 1% of the sale price (negotiable on high value sales)</p>
+              <Link href="#contact" className="btn-accent inline-flex items-center gap-2">
+                Contact us now for a consultation <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What's in it for Agents */}
-      <section className="section bg-gray-50">
+      {/* For Agents Section */}
+      <section id="agents" className="section bg-white">
         <div className="r-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a1a2e]">
-                What&apos;s in it for <span className="text-[#c9a227]">Agents?</span>
+                For <span className="text-[#c9a227]">Agents</span>
               </h2>
-              <p className="text-gray-700 text-xl mb-8">
-                Referral Fee = <span className="text-[#c9a227] font-bold">25%</span> of Lawyer&apos;s Conveyancing Fee (1%)
+              <p className="text-gray-700 text-xl mb-6">
+                Are you a real estate agency or independent agent (autónomo)? We want to collaborate!
               </p>
-              <p className="text-gray-600">
-                Partner with us and earn commission on every successful referral. No upfront costs, no hidden fees - just straightforward earnings from your client introductions.
+              <p className="text-gray-600 mb-8">
+                Many of our clients come to us as referrals from our partnerships with property professionals like you.
               </p>
+              <p className="text-gray-700 text-lg mb-8">
+                We pay a referral fee of <span className="text-[#c9a227] font-bold">25%</span> of the conveyancing fee. For example, on a sale of €500,000, the conveyancing fee will be €5,000, and the referral fee would be €1,250.
+              </p>
+              <p className="text-gray-700 font-semibold mb-6">Call us or submit the form below</p>
             </div>
             <div className="bg-white rounded-2xl shadow-xl p-8 border-t-4 border-[#c9a227]">
               <p className="text-[#c9a227] font-semibold text-sm uppercase tracking-wide mb-6">Example Calculation</p>
               <div className="space-y-6">
                 <div className="flex justify-between items-center pb-4 border-b border-gray-100">
                   <span className="text-gray-600">Sale Value</span>
-                  <span className="text-2xl font-bold text-[#1a1a2e]">€500k</span>
+                  <span className="text-2xl font-bold text-[#1a1a2e]">€500,000</span>
                 </div>
                 <div className="flex justify-between items-center pb-4 border-b border-gray-100">
                   <span className="text-gray-600">Conveyancing Fee (1%)</span>
-                  <span className="text-2xl font-bold text-[#1a1a2e]">€5k</span>
+                  <span className="text-2xl font-bold text-[#1a1a2e]">€5,000</span>
                 </div>
                 <div className="flex justify-between items-center bg-[#c9a227]/10 -mx-8 px-8 py-6 rounded-b-xl">
                   <span className="text-[#1a1a2e] font-semibold">Your Referral Fee (25%)</span>
@@ -133,33 +146,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ready to Partner CTA Section */}
-      <section className="relative py-32" style={{ backgroundImage: 'url(/images/real-estate-neighborhood-community-homes-2026-01-08-07-43-05-utc.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
-        <div className="absolute inset-0 bg-[#1a1a2e]/80" />
-        <div className="r-container relative z-10 text-center">
-          <p className="text-[#c9a227] font-medium mb-4">Ready to Partner?</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 max-w-2xl mx-auto">
-            Start Earning <span className="text-[#c9a227]">Commission</span> on Every Referral
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-            Join hundreds of Costa del Sol agents already partnering with us. First 50 get priority lawyer intros.
-          </p>
-          <Link href="/contact" className="btn-accent inline-flex items-center gap-2">
-            Contact Us <ArrowRight size={18} />
-          </Link>
-        </div>
-      </section>
-
-      {/* Bottom CTA with Form */}
-      <section className="section bg-white">
+      {/* Contact Section */}
+      <section id="contact" className="section bg-gray-50">
         <div className="r-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a1a2e]">
-                Get in <span className="text-[#c9a227]">Touch</span>
+                <span className="text-[#c9a227]">Contact</span> Us
               </h2>
               <p className="text-gray-600 mb-6">
-                Ready to start earning referral fees? Submit the form and we&apos;ll reach out to discuss how we can work together.
+                Ready to get started? Submit the form and we&apos;ll reach out to discuss how we can help with your Spanish property transaction or partnership opportunities.
               </p>
             </div>
             <LeadWizard />
