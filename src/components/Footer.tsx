@@ -12,7 +12,7 @@ export default function Footer() {
             <div>
               <Image src="/images/image001.png" alt="Spanish Conveyancing" width={180} height={45} className="mb-4" />
               <p className="text-gray-600 text-sm">
-                Connecting Costa del Sol estate agents with vetted Spanish conveyancing lawyers. Earn 20-25% commission on referrals.
+                Spanish property lawyers providing comprehensive conveyancing services for a smooth and secure property transaction.
               </p>
             </div>
 
@@ -21,6 +21,8 @@ export default function Footer() {
               <h5 className="text-lg font-semibold mb-4 text-[#c9a227]">Quick Links</h5>
               <ul className="space-y-2">
                 <li><Link href="/" className="text-gray-600 hover:text-[#c9a227] transition-colors">Home</Link></li>
+                <li><Link href="/services" className="text-gray-600 hover:text-[#c9a227] transition-colors">Services</Link></li>
+                <li><Link href="/agents" className="text-gray-600 hover:text-[#c9a227] transition-colors">For Agents</Link></li>
                 <li><Link href="/contact" className="text-gray-600 hover:text-[#c9a227] transition-colors">Contact</Link></li>
               </ul>
             </div>

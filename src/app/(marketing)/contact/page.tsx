@@ -31,10 +31,10 @@ export default function ContactPage() {
             <div>
               <p className="text-[#c9a227] font-medium mb-2">Get in Touch</p>
               <h2 className="text-3xl font-bold mb-6 text-[#1a1a2e]">
-                Ready for Your <span className="text-[#c9a227]">Commission</span> Share?
+                Request a <span className="text-[#c9a227]">Callback</span>
               </h2>
               <p className="text-gray-600 mb-8">
-                Call us or submit the form below and we&apos;ll reach out to discuss how we can help grow your business.
+                Call us or submit the form below and we&apos;ll reach out to discuss how we can help with your Spanish property transaction.
               </p>
               <LeadWizard />
             </div>
@@ -43,10 +43,10 @@ export default function ContactPage() {
             <div>
               <p className="text-[#c9a227] font-medium mb-2">Contact Information</p>
               <h3 className="text-2xl font-bold mb-6 text-[#1a1a2e]">
-                Get In <span className="text-[#c9a227]">Touch</span>
+                How to <span className="text-[#c9a227]">Reach</span> Us
               </h3>
               <p className="text-gray-600 mb-8">
-                We&apos;re here to help you connect with vetted Spanish conveyancing lawyers and start earning commission on referrals.
+                We&apos;re here to help you with all your Spanish property conveyancing needs.
               </p>
 
               <div className="space-y-6">

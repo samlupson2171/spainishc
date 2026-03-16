@@ -1,30 +1,27 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import LeadWizard from '@/components/LeadWizard';
-import { CheckCircle, ArrowRight, Phone } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center" style={{ backgroundImage: 'url(/images/lawyers-office-hero-background.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="relative min-h-[70vh] flex items-center" style={{ backgroundImage: 'url(/images/lawyers-office-hero-background.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="bg-overlay" />
         <div className="r-container relative z-10 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Specialists in <span className="text-[#c9a227]">Property Conveyancing</span>
-              </h1>
-              <p className="text-xl text-gray-200 mb-6">
-                Spanish property lawyers - we provide all the legal conveyancing services you need to ensure a smooth and secure property transaction, from initial verification to final registration, safeguarding your investment at every step.
-              </p>
-              <p className="text-lg text-[#c9a227]">
-                Multiple languages supported: including English, French, Dutch, Swedish, Polish, Russian, Arabic
-              </p>
-            </div>
-            <div>
-              <LeadWizard />
-            </div>
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white">
+              Specialists in <span className="text-[#c9a227]">Property Conveyancing</span>
+            </h1>
+            <p className="text-xl text-gray-200 mb-6">
+              Spanish property lawyers - we provide all the legal conveyancing services you need to ensure a smooth and secure property transaction, from initial verification to final registration, safeguarding your investment at every step.
+            </p>
+            <p className="text-lg text-[#c9a227] mb-8">
+              Multiple languages supported: including English, French, Dutch, Swedish, Polish, Russian, Arabic
+            </p>
+            <Link href="#contact" className="btn-accent inline-flex items-center gap-2">
+              Request a Callback <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>
@@ -101,46 +98,6 @@ export default function Home() {
               <Link href="#contact" className="btn-accent inline-flex items-center gap-2">
                 Contact us now for a consultation <ArrowRight size={18} />
               </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* For Agents Section */}
-      <section id="agents" className="section bg-white">
-        <div className="r-container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a1a2e]">
-                For <span className="text-[#c9a227]">Agents</span>
-              </h2>
-              <p className="text-gray-700 text-xl mb-6">
-                Are you a real estate agency or independent agent (autónomo)? We want to collaborate!
-              </p>
-              <p className="text-gray-600 mb-8">
-                Many of our clients come to us as referrals from our partnerships with property professionals like you.
-              </p>
-              <p className="text-gray-700 text-lg mb-8">
-                We pay a referral fee of <span className="text-[#c9a227] font-bold">25%</span> of the conveyancing fee. For example, on a sale of €500,000, the conveyancing fee will be €5,000, and the referral fee would be €1,250.
-              </p>
-              <p className="text-gray-700 font-semibold mb-6">Call us or submit the form below</p>
-            </div>
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-t-4 border-[#c9a227]">
-              <p className="text-[#c9a227] font-semibold text-sm uppercase tracking-wide mb-6">Example Calculation</p>
-              <div className="space-y-6">
-                <div className="flex justify-between items-center pb-4 border-b border-gray-100">
-                  <span className="text-gray-600">Sale Value</span>
-                  <span className="text-2xl font-bold text-[#1a1a2e]">€500,000</span>
-                </div>
-                <div className="flex justify-between items-center pb-4 border-b border-gray-100">
-                  <span className="text-gray-600">Conveyancing Fee (1%)</span>
-                  <span className="text-2xl font-bold text-[#1a1a2e]">€5,000</span>
-                </div>
-                <div className="flex justify-between items-center bg-[#c9a227]/10 -mx-8 px-8 py-6 rounded-b-xl">
-                  <span className="text-[#1a1a2e] font-semibold">Your Referral Fee (25%)</span>
-                  <span className="text-3xl font-bold text-[#c9a227]">€1,250</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

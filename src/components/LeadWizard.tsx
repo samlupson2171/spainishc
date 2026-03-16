@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion, AnimatePresence } from 'framer-motion';
 import { leadSchema, LeadFormData } from '@/lib/schema';
-import { User, Building2, Mail, Phone, Clock, CheckCircle, ArrowRight, ArrowLeft, Loader2 } from 'lucide-react';
+import { User, Mail, Phone, Clock, CheckCircle, ArrowRight, ArrowLeft, Loader2 } from 'lucide-react';
 
 export default function LeadWizard() {
   const [step, setStep] = useState(1);
@@ -117,17 +117,6 @@ export default function LeadWizard() {
                   />
                 </div>
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
-              </div>
-
-              <div>
-                <div className="relative">
-                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                  <input
-                    {...register('agency')}
-                    placeholder="Agency Name (Optional)"
-                    className="form-control"
-                  />
-                </div>
               </div>
 
               <div>
