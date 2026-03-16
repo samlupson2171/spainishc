@@ -108,11 +108,12 @@ export default function Home() {
         <div className="r-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
+              <p className="text-[#c9a227] font-medium mb-2">Get in Touch</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a1a2e]">
-                <span className="text-[#c9a227]">Contact</span> Us
+                Request a <span className="text-[#c9a227]">Callback</span>
               </h2>
               <p className="text-gray-600 mb-6">
-                Ready to get started? Submit the form and we&apos;ll reach out to discuss how we can help with your Spanish property transaction or partnership opportunities.
+                Call us or submit the form below and we&apos;ll reach out to discuss how we can help with your Spanish property transaction.
               </p>
             </div>
             <LeadWizard />

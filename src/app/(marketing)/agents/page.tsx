@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import LeadWizard from '@/components/LeadWizard';
-import { CheckCircle } from 'lucide-react';
+import AgentLeadWizard from '@/components/AgentLeadWizard';
 
 export const metadata = {
   title: 'For Agents | Spanish Conveyancing',
@@ -75,12 +74,8 @@ export default function AgentsPage() {
               <p className="text-gray-600 mb-6">
                 Join hundreds of Costa del Sol agents already partnering with us. Submit your details and we&apos;ll call you back.
               </p>
-              <div className="flex items-center gap-4 text-sm text-gray-500">
-                <CheckCircle className="text-green-500" size={20} />
-                <span>First 50 agents get priority lawyer intros</span>
-              </div>
             </div>
-            <LeadWizard />
+            <AgentLeadWizard />
           </div>
         </div>
       </section>
