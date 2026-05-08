@@ -108,7 +108,7 @@ export default function DashboardPage() {
       <header className="bg-[#1a1a2e] text-white py-4">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Image src="/images/image001.png" alt="Spanish Conveyancing" width={150} height={40} />
+            <Image src="/images/newlogo.png" alt="Spanish Conveyancing" width={150} height={40} />
             <span className="text-gray-400">|</span>
             <span>Dashboard</span>
           </div>

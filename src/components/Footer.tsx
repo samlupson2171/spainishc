@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-200">
             {/* Logo & About */}
             <div>
-              <Image src="/images/image001.png" alt="Spanish Conveyancing" width={180} height={45} className="mb-4" />
+              <Image src="/images/newlogo.png" alt="Spanish Conveyancing" width={180} height={45} className="mb-4" />
               <p className="text-gray-600 text-sm">
                 Spanish property lawyers providing comprehensive conveyancing services for a smooth and secure property transaction.
               </p>
@@ -50,7 +50,7 @@ export default function Footer() {
           {/* Disclaimer */}
           <div className="py-6 border-b border-gray-200">
             <p className="text-gray-500 text-sm leading-relaxed">
-              Spanish Conveyancing is a trading style of Fountain Finances Limited. This site is owned and operated by Fountain Finances Limited which is registered in England and Wales. Financial Conduct Authority (FCA) registered number: 08069774. Registered office: 1D MacLaren House, Talbot Road, Old Trafford, Manchester, M32 0FP. Information Commissioners Office registration number ZA465505. VAT No. 250 2839 19
+              Spanish Conveyancing is a trading style of Fountain Finances Limited. This site is owned and operated by Fountain Finances Limited which is registered in England and Wales. Registered office: 1D MacLaren House, Talbot Road, Old Trafford, Manchester, M32 0FP. Information Commissioners Office registration number ZA465505. VAT No. 250 2839 19
             </p>
           </div>
 

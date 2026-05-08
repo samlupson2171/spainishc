@@ -36,7 +36,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[#1a1a2e] flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
-          <Image src="/images/image001.png" alt="Spanish Conveyancing" width={180} height={45} className="mx-auto mb-4" />
+          <Image src="/images/newlogo.png" alt="Spanish Conveyancing" width={180} height={45} className="mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-[#1a1a2e]">Admin Dashboard</h1>
           <p className="text-gray-600">Sign in to manage leads</p>
         </div>

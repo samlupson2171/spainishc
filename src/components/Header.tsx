@@ -21,7 +21,7 @@ export default function Header() {
         <div className="r-container">
           <nav className="flex items-center justify-between py-4">
             <Link href="/" className="flex items-center">
-              <Image src="/images/image001.png" alt="Spanish Conveyancing" width={200} height={50} className="h-12 w-auto" />
+              <Image src="/images/newlogo.png" alt="Spanish Conveyancing" width={200} height={50} className="h-12 w-auto" />
             </Link>
 
             {/* Desktop Nav */}
