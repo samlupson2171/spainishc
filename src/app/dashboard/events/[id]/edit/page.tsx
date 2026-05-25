@@ -48,6 +48,15 @@ export default function EditEventPage() {
         date: event.date,
         timezone: event.timezone,
         location: event.location,
+        subtitle: event.subtitle || '',
+        heroImage: event.heroImage || '',
+        highlights: event.highlights || [],
+        aboutHeading: event.aboutHeading || '',
+        aboutBody: event.aboutBody || '',
+        schedule: event.schedule || [],
+        ctaHeading: event.ctaHeading || '',
+        ctaBody: event.ctaBody || '',
+        registrationNote: event.registrationNote || '',
       });
     } catch {
       setFetchError('A network error occurred while loading the event.');

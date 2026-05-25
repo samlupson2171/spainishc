@@ -3,17 +3,11 @@
 import { useState } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { eventSchema, type EventFormData } from '@/lib/eventSchema';
 import { Plus, Trash2, Sparkles, Loader2 } from 'lucide-react';
 
-// Extend the base schema with client-side future date validation
-const eventFormSchema = eventSchema.refine(
-  (data) => new Date(data.date) > new Date(),
-  { message: 'Event date must be in the future', path: ['date'] }
-);
-
-type EventFormValues = z.infer<typeof eventFormSchema>;
+// Use the base schema for the form - date validation handled in onSubmit
+type EventFormValues = EventFormData;
 
 const COMMON_TIMEZONES = [
   'Europe/London',
@@ -87,16 +81,16 @@ export default function EventForm({ defaultValues, onSubmit, serverError, isSubm
   const [aiLoading, setAiLoading] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
   const [aiSuccess, setAiSuccess] = useState(false);
+  const [dateError, setDateError] = useState<string | null>(null);
 
   const {
     register,
     handleSubmit,
     setValue,
     control,
-    reset,
     formState: { errors },
   } = useForm<EventFormValues>({
-    resolver: zodResolver(eventFormSchema),
+    resolver: zodResolver(eventSchema),
     defaultValues: defaultValues
       ? {
           ...defaultValues,
@@ -184,6 +178,12 @@ export default function EventForm({ defaultValues, onSubmit, serverError, isSubm
   };
 
   const handleFormSubmit = async (data: EventFormValues) => {
+    // Client-side future date validation
+    if (data.date && new Date(data.date) <= new Date()) {
+      setDateError('Event date must be in the future');
+      return;
+    }
+    setDateError(null);
     await onSubmit(data);
   };
 
@@ -303,14 +303,16 @@ export default function EventForm({ defaultValues, onSubmit, serverError, isSubm
               <input
                 id="date"
                 type="datetime-local"
-                className={inputClass(!!errors.date)}
+                className={inputClass(!!errors.date || !!dateError)}
                 defaultValue={defaultValues?.date ? toDatetimeLocal(defaultValues.date) : ''}
                 onChange={(e) => {
                   const isoValue = fromDatetimeLocal(e.target.value);
                   setValue('date', isoValue, { shouldValidate: true });
+                  setDateError(null);
                 }}
               />
               {errors.date && <p className="mt-1 text-sm text-red-600">{errors.date.message}</p>}
+              {dateError && !errors.date && <p className="mt-1 text-sm text-red-600">{dateError}</p>}
             </div>
             <div>
               <label htmlFor="timezone" className="block text-sm font-medium text-gray-700 mb-1">

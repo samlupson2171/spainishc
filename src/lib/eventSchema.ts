@@ -9,22 +9,22 @@ export const eventSchema = z.object({
   timezone: z.string().min(1, 'Timezone is required'),
   location: z.string().min(1, 'Location is required').max(200, 'Location must be 200 characters or less'),
   // Landing page content fields
-  subtitle: z.string().max(200, 'Subtitle must be 200 characters or less').optional().default(''),
-  heroImage: z.string().max(500, 'Image path must be 500 characters or less').optional().default(''),
+  subtitle: z.string().max(200, 'Subtitle must be 200 characters or less'),
+  heroImage: z.string().max(500, 'Image path must be 500 characters or less'),
   highlights: z.array(z.object({
     title: z.string().max(100),
     description: z.string().max(200),
-  })).optional().default([]),
-  aboutHeading: z.string().max(150, 'About heading must be 150 characters or less').optional().default(''),
-  aboutBody: z.string().max(3000, 'About body must be 3000 characters or less').optional().default(''),
+  })),
+  aboutHeading: z.string().max(150, 'About heading must be 150 characters or less'),
+  aboutBody: z.string().max(3000, 'About body must be 3000 characters or less'),
   schedule: z.array(z.object({
     time: z.string().max(50),
     title: z.string().max(100),
     description: z.string().max(200),
-  })).optional().default([]),
-  ctaHeading: z.string().max(150, 'CTA heading must be 150 characters or less').optional().default(''),
-  ctaBody: z.string().max(500, 'CTA body must be 500 characters or less').optional().default(''),
-  registrationNote: z.string().max(500, 'Registration note must be 500 characters or less').optional().default(''),
+  })),
+  ctaHeading: z.string().max(150, 'CTA heading must be 150 characters or less'),
+  ctaBody: z.string().max(500, 'CTA body must be 500 characters or less'),
+  registrationNote: z.string().max(500, 'Registration note must be 500 characters or less'),
 });
 
 export const registrationSchema = z.object({
