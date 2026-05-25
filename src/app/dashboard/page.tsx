@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
-import { LogOut, Phone, Mail, Clock, Trash2, RefreshCw, Search, Filter } from 'lucide-react';
+import { LogOut, Phone, Mail, Clock, Trash2, RefreshCw, Search, Filter, Calendar } from 'lucide-react';
 
 interface Lead {
   _id: string;
@@ -112,13 +113,22 @@ export default function DashboardPage() {
             <span className="text-gray-400">|</span>
             <span>Dashboard</span>
           </div>
-          <button
-            onClick={() => signOut({ callbackUrl: '/' })}
-            className="flex items-center gap-2 text-gray-300 hover:text-white"
-          >
-            <LogOut size={18} />
-            Logout
-          </button>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/dashboard/events"
+              className="flex items-center gap-2 text-gray-300 hover:text-white"
+            >
+              <Calendar size={18} />
+              Events
+            </Link>
+            <button
+              onClick={() => signOut({ callbackUrl: '/' })}
+              className="flex items-center gap-2 text-gray-300 hover:text-white"
+            >
+              <LogOut size={18} />
+              Logout
+            </button>
+          </div>
         </div>
       </header>
 
