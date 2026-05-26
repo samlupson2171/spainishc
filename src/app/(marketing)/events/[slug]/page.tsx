@@ -116,7 +116,7 @@ export default async function EventPage({ params }: EventPageProps) {
               </div>
               <div className="flex items-center gap-2">
                 <Clock size={20} className="text-[#c9a227]" />
-                <span>{formattedTime}</span>
+                <span>{formattedTime}–18:00 Presentation, followed by complimentary drinks and canapés</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={20} className="text-[#c9a227]" />
@@ -243,7 +243,7 @@ export default async function EventPage({ params }: EventPageProps) {
                     <Calendar size={18} className="text-[#c9a227] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-medium text-gray-800">{formattedDate}</p>
-                      <p>{formattedTime}</p>
+                      <p>{formattedTime}–18:00 Presentation, followed by complimentary drinks and canapés</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
