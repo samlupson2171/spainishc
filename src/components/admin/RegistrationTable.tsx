@@ -6,7 +6,9 @@ import { XCircle, CheckCircle, AlertCircle } from 'lucide-react';
 interface Registration {
   _id: string;
   eventId: string;
-  name: string;
+  numberOfAttendees: number;
+  attendeeNames: string;
+  agencyName: string;
   email: string;
   phone: string;
   status: 'active' | 'cancelled';
@@ -118,7 +120,8 @@ export default function RegistrationTable({ registrations, onCancelSuccess }: Re
           <table className="w-full">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-500">Name</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-500">Agency</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-500">Attendees</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-500">Email</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-500">Phone</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-500">Registration Date</th>
@@ -129,7 +132,13 @@ export default function RegistrationTable({ registrations, onCancelSuccess }: Re
             <tbody className="divide-y">
               {registrations.map((reg) => (
                 <tr key={reg._id} className="hover:bg-gray-50">
-                  <td className="px-4 py-3 font-medium">{reg.name}</td>
+                  <td className="px-4 py-3 font-medium">{reg.agencyName}</td>
+                  <td className="px-4 py-3 text-gray-600">
+                    <div>
+                      <span className="font-medium">{reg.numberOfAttendees}</span>
+                      <p className="text-xs text-gray-500 whitespace-pre-line">{reg.attendeeNames}</p>
+                    </div>
+                  </td>
                   <td className="px-4 py-3 text-gray-600">{reg.email}</td>
                   <td className="px-4 py-3 text-gray-600">{reg.phone}</td>
                   <td className="px-4 py-3 text-sm text-gray-500">

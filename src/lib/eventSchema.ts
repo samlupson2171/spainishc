@@ -29,7 +29,9 @@ export const eventSchema = z.object({
 
 export const registrationSchema = z.object({
   eventId: z.string().min(1, 'Event ID is required'),
-  name: z.string().min(2, 'Name must be at least 2 characters').max(100, 'Name must be 100 characters or less'),
+  numberOfAttendees: z.number().min(1, 'At least 1 attendee required').max(20, 'Maximum 20 attendees'),
+  attendeeNames: z.string().min(2, 'Please provide attendee names').max(500, 'Attendee names must be 500 characters or less'),
+  agencyName: z.string().min(2, 'Agency name must be at least 2 characters').max(150, 'Agency name must be 150 characters or less'),
   email: z.string().email('Please enter a valid email address').max(254),
   phone: z.string().regex(
     /^\+?\d{7,15}$/,
@@ -56,7 +58,9 @@ export interface Event extends EventFormData {
 export interface Registration {
   _id: string;
   eventId: string;
-  name: string;
+  numberOfAttendees: number;
+  attendeeNames: string;
+  agencyName: string;
   email: string;
   phone: string;
   status: 'active' | 'cancelled';

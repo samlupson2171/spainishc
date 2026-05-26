@@ -26,7 +26,9 @@ interface Event {
 interface Registration {
   _id: string;
   eventId: string;
-  name: string;
+  numberOfAttendees: number;
+  attendeeNames: string;
+  agencyName: string;
   email: string;
   phone: string;
   status: 'active' | 'cancelled';

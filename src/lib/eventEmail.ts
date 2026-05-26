@@ -116,7 +116,7 @@ export async function sendConfirmationEmail(
 
   const html = `
     <h2>Registration Confirmed</h2>
-    <p>Hi ${registration.name},</p>
+    <p>Hi ${registration.attendeeNames.split('\n')[0]},</p>
     <p>Thank you for registering for <strong>${event.title}</strong>.</p>
     <h3>Event Details</h3>
     <ul>
@@ -125,7 +125,12 @@ export async function sendConfirmationEmail(
       <li><strong>Location:</strong> ${event.location}</li>
       <li><strong>Timezone:</strong> ${event.timezone}</li>
     </ul>
-    <p><strong>Your Registration Reference:</strong> ${registration.referenceId}</p>
+    <h3>Your Registration</h3>
+    <ul>
+      <li><strong>Reference:</strong> ${registration.referenceId}</li>
+      <li><strong>Agency:</strong> ${registration.agencyName}</li>
+      <li><strong>Attendees (${registration.numberOfAttendees}):</strong> ${registration.attendeeNames.replace(/\n/g, ', ')}</li>
+    </ul>
     <p>We look forward to seeing you there!</p>
     <p>Best regards,<br/>Spanish Conveyancing</p>
   `;
@@ -186,9 +191,10 @@ export async function sendAdminNotification(
   const html = `
     <h2>New Event Registration</h2>
     <p>A new registration has been received for <strong>${event.title}</strong>.</p>
-    <h3>Attendee Details</h3>
+    <h3>Registration Details</h3>
     <ul>
-      <li><strong>Name:</strong> ${registration.name}</li>
+      <li><strong>Agency:</strong> ${registration.agencyName}</li>
+      <li><strong>Attendees (${registration.numberOfAttendees}):</strong> ${registration.attendeeNames.replace(/\n/g, ', ')}</li>
       <li><strong>Email:</strong> ${registration.email}</li>
       <li><strong>Phone:</strong> ${registration.phone}</li>
     </ul>
@@ -201,7 +207,7 @@ export async function sendAdminNotification(
     const { error } = await resend.emails.send({
       from: SENDER,
       to: NOTIFICATION_EMAILS,
-      subject: `New Registration: ${event.title} - ${registration.name}`,
+      subject: `New Registration: ${event.title} - ${registration.agencyName}`,
       html,
     });
 
@@ -219,7 +225,7 @@ export async function sendAdminNotification(
     const { error } = await resend.emails.send({
       from: SENDER,
       to: NOTIFICATION_EMAILS,
-      subject: `New Registration: ${event.title} - ${registration.name}`,
+      subject: `New Registration: ${event.title} - ${registration.agencyName}`,
       html,
     });
 
@@ -254,7 +260,7 @@ export async function sendReminderEmail(
 
   const html = `
     <h2>${subjectPrefix}: ${event.title}</h2>
-    <p>Hi ${registration.name},</p>
+    <p>Hi ${registration.attendeeNames.split('\n')[0]},</p>
     <p>${reminderText}</p>
     <h3>Event Details</h3>
     <ul>

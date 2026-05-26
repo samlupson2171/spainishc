@@ -137,7 +137,9 @@ export async function createRegistration(
 
   const doc = {
     eventId: new ObjectId(data.eventId),
-    name: data.name,
+    numberOfAttendees: data.numberOfAttendees,
+    attendeeNames: data.attendeeNames,
+    agencyName: data.agencyName,
     email: data.email,
     phone: data.phone,
     status: 'active' as const,

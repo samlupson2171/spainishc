@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { eventId, name, email, phone } = parsed.data;
+    const { eventId, email } = parsed.data;
 
     // Check event exists and is published
     const event = await getEventById(eventId);
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
 
     // Create the registration
     const registration = await createRegistration(
-      { eventId, name, email, phone },
+      parsed.data,
       eventDate
     );
 

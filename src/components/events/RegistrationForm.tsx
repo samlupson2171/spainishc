@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { registrationSchema } from '@/lib/eventSchema';
-import { User, Mail, Phone, Loader2, CheckCircle } from 'lucide-react';
+import { Users, User, Building2, Mail, Phone, Loader2, CheckCircle } from 'lucide-react';
 
 // Form schema excludes eventId (passed as prop)
 const formSchema = registrationSchema.omit({ eventId: true });
@@ -28,6 +28,9 @@ export default function RegistrationForm({ eventId, eventTitle }: RegistrationFo
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      numberOfAttendees: 1,
+    },
   });
 
   const onSubmit = async (data: FormData) => {
@@ -88,23 +91,63 @@ export default function RegistrationForm({ eventId, eventTitle }: RegistrationFo
         </div>
       )}
 
+      {/* Number of Attendees */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-          Full Name
+        <label htmlFor="numberOfAttendees" className="block text-sm font-medium text-gray-700 mb-1">
+          Number of Attendees
         </label>
         <div className="relative">
-          <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+          <Users className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
           <input
-            {...register('name')}
-            id="name"
-            type="text"
-            placeholder="Your full name"
-            className={`form-control ${errors.name ? 'error' : ''}`}
+            {...register('numberOfAttendees', { valueAsNumber: true })}
+            id="numberOfAttendees"
+            type="number"
+            min={1}
+            max={20}
+            placeholder="1"
+            className={`form-control ${errors.numberOfAttendees ? 'error' : ''}`}
           />
         </div>
-        {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+        {errors.numberOfAttendees && <p className="text-red-500 text-sm mt-1">{errors.numberOfAttendees.message}</p>}
       </div>
 
+      {/* Full Names of Attendees */}
+      <div>
+        <label htmlFor="attendeeNames" className="block text-sm font-medium text-gray-700 mb-1">
+          Full Names of Each Attendee
+        </label>
+        <div className="relative">
+          <User className="absolute left-3 top-3 text-gray-400" size={18} />
+          <textarea
+            {...register('attendeeNames')}
+            id="attendeeNames"
+            rows={3}
+            placeholder="Enter each attendee's full name (one per line)"
+            className={`form-control resize-y ${errors.attendeeNames ? 'error' : ''}`}
+          />
+        </div>
+        {errors.attendeeNames && <p className="text-red-500 text-sm mt-1">{errors.attendeeNames.message}</p>}
+      </div>
+
+      {/* Agency Name */}
+      <div>
+        <label htmlFor="agencyName" className="block text-sm font-medium text-gray-700 mb-1">
+          Agency Name
+        </label>
+        <div className="relative">
+          <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+          <input
+            {...register('agencyName')}
+            id="agencyName"
+            type="text"
+            placeholder="Your agency or company name"
+            className={`form-control ${errors.agencyName ? 'error' : ''}`}
+          />
+        </div>
+        {errors.agencyName && <p className="text-red-500 text-sm mt-1">{errors.agencyName.message}</p>}
+      </div>
+
+      {/* Email Address */}
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
           Email Address
@@ -122,9 +165,10 @@ export default function RegistrationForm({ eventId, eventTitle }: RegistrationFo
         {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
       </div>
 
+      {/* Phone Number */}
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-          Phone Number
+          Contact Phone Number
         </label>
         <div className="relative">
           <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
@@ -150,7 +194,7 @@ export default function RegistrationForm({ eventId, eventTitle }: RegistrationFo
             Registering...
           </>
         ) : (
-          'Register Now'
+          'Reserve Your Place'
         )}
       </button>
     </form>
