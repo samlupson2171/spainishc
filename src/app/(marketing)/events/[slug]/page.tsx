@@ -4,13 +4,13 @@ import Image from 'next/image';
 import { getEventBySlug } from '@/lib/eventDb';
 import RegistrationForm from '@/components/events/RegistrationForm';
 import EventClosedBanner from '@/components/events/EventClosedBanner';
-import { Calendar, Clock, MapPin, Users, TrendingUp, Handshake, BarChart3, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, TrendingUp, Home, Euro, BarChart3, ArrowRight } from 'lucide-react';
 
 interface EventPageProps {
   params: Promise<{ slug: string }>;
 }
 
-const HIGHLIGHT_ICONS = [BarChart3, TrendingUp, Handshake, Users];
+const HIGHLIGHT_ICONS = [BarChart3, Home, TrendingUp, Euro];
 
 export async function generateMetadata({ params }: EventPageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -80,7 +80,6 @@ export default async function EventPage({ params }: EventPageProps) {
 
   const heroImage = event.heroImage || '/images/la-sala-venue.jpg';
   const highlights = event.highlights && event.highlights.length > 0 ? event.highlights : null;
-  const schedule = event.schedule && event.schedule.length > 0 ? event.schedule : null;
 
   return (
     <>
@@ -134,9 +133,43 @@ export default async function EventPage({ params }: EventPageProps) {
         </div>
       </section>
 
+      {/* About the Company Section */}
+      <section className="section bg-white">
+        <div className="r-container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-[#c9a227] font-semibold text-sm uppercase tracking-wider mb-3">About Us</p>
+              <h2 className="text-3xl font-bold text-[#1a1a2e] mb-6">
+                Specialists in Spanish Property <span className="text-[#c9a227]">Conveyancing</span>
+              </h2>
+              <div className="text-gray-700 space-y-4 leading-relaxed">
+                <p>
+                  Based on the Costa del Sol, Spanish Conveyancing provides expert legal services for property buyers across Spain. Our team of experienced property lawyers guide clients seamlessly through every stage of the purchasing process — from initial verification to final registration.
+                </p>
+                <p>
+                  We work closely with estate agencies and autónomo agents through our referral partnership programme, creating additional revenue streams while ensuring clients receive exceptional legal support throughout their transaction.
+                </p>
+                <p>
+                  With multilingual support including English, French, Dutch, Swedish, Polish, Russian, and Arabic, we reflect Spain&apos;s international property market and ensure every client feels understood.
+                </p>
+              </div>
+            </div>
+            <div className="relative">
+              <Image
+                src="/images/social-worker-approving-agreement-for-client-2026-01-07-07-09-13-utc.jpg"
+                alt="Spanish Conveyancing team assisting clients"
+                width={600}
+                height={450}
+                className="rounded-2xl shadow-lg object-cover w-full h-[400px]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Highlights Section */}
       {highlights && (
-        <section className="section bg-white">
+        <section className="section bg-gray-50">
           <div className="r-container">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a2e] mb-4">
@@ -162,70 +195,6 @@ export default async function EventPage({ params }: EventPageProps) {
                   </div>
                 );
               })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* About Section */}
-      {(event.aboutHeading || event.aboutBody) && (
-        <section className="section bg-gray-50">
-          <div className="r-container">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-[#c9a227] font-semibold text-sm uppercase tracking-wider mb-3">About the Event</p>
-                {event.aboutHeading && (
-                  <h2 className="text-3xl font-bold text-[#1a1a2e] mb-6">
-                    {event.aboutHeading}
-                  </h2>
-                )}
-                {event.aboutBody && (
-                  <div className="text-gray-700 space-y-4 leading-relaxed whitespace-pre-line">
-                    {event.aboutBody}
-                  </div>
-                )}
-              </div>
-              <div className="relative">
-                <div className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d4a] rounded-2xl p-8 text-white">
-                  <h3 className="text-xl font-bold mb-6 text-[#c9a227]">Event Schedule</h3>
-                  <div className="space-y-6">
-                    {schedule && schedule.length > 0 ? (
-                      schedule.map((item, index) => (
-                        <div key={index} className="flex gap-4">
-                          <div className="w-12 h-12 bg-[#c9a227]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Clock size={20} className="text-[#c9a227]" />
-                          </div>
-                          <div>
-                            <p className="font-semibold">{item.time} – {item.title}</p>
-                            <p className="text-gray-300 text-sm">{item.description}</p>
-                          </div>
-                        </div>
-                      ))
-                    ) : (
-                      <>
-                        <div className="flex gap-4">
-                          <div className="w-12 h-12 bg-[#c9a227]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Clock size={20} className="text-[#c9a227]" />
-                          </div>
-                          <div>
-                            <p className="font-semibold">{formattedTime} – Seminar</p>
-                            <p className="text-gray-300 text-sm">Educational presentations and insights</p>
-                          </div>
-                        </div>
-                        <div className="flex gap-4">
-                          <div className="w-12 h-12 bg-[#c9a227]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <MapPin size={20} className="text-[#c9a227]" />
-                          </div>
-                          <div>
-                            <p className="font-semibold">{event.location}</p>
-                            <p className="text-gray-300 text-sm">{formattedDate}</p>
-                          </div>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
