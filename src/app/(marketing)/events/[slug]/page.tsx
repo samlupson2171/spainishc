@@ -98,7 +98,7 @@ export default async function EventPage({ params }: EventPageProps) {
         <div className="r-container relative z-10 py-20">
           <div className="max-w-3xl">
             <p className="text-[#c9a227] font-semibold text-sm uppercase tracking-wider mb-4">
-              Exclusive Event on the Spanish Property Market
+              Complimentary Event
             </p>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white">
               {event.title}
