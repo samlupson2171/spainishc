@@ -5,7 +5,7 @@ import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { LogOut, Phone, Mail, Clock, Trash2, RefreshCw, Search, Filter, Calendar } from 'lucide-react';
+import { LogOut, Phone, Mail, Clock, Trash2, RefreshCw, Search, Filter, Calendar, Users } from 'lucide-react';
 
 interface Lead {
   _id: string;
@@ -120,6 +120,13 @@ export default function DashboardPage() {
             >
               <Calendar size={18} />
               Events
+            </Link>
+            <Link
+              href="/dashboard/users"
+              className="flex items-center gap-2 text-gray-300 hover:text-white"
+            >
+              <Users size={18} />
+              Users
             </Link>
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
