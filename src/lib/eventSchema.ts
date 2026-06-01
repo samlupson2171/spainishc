@@ -62,7 +62,7 @@ export interface Registration {
   attendeeNames: string;
   agencyName: string;
   email: string;
-  phone: string;
+  phone?: string;
   status: 'active' | 'cancelled';
   referenceId: string;
   confirmationEmailSent: boolean;
