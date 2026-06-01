@@ -168,7 +168,7 @@ export default function RegistrationForm({ eventId, eventTitle }: RegistrationFo
       {/* Phone Number */}
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-          Contact Phone Number
+          Contact Phone Number <span className="text-gray-400 font-normal">(optional)</span>
         </label>
         <div className="relative">
           <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />

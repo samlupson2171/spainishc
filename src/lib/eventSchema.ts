@@ -36,7 +36,7 @@ export const registrationSchema = z.object({
   phone: z.string().regex(
     /^\+?\d{7,15}$/,
     'Phone number must be 7-15 digits, optionally prefixed with a country code'
-  ),
+  ).optional().or(z.literal('')),
 });
 
 // --- Inferred Types ---
