@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -53,7 +53,7 @@ export default function AgentLeadWizard() {
 
   if (isSuccess && submittedData) {
     return (
-      <div className="bg-white p-8 rounded-lg shadow-lg">
+      <div className="lead-wizard p-8">
         {showConfetti && <Confetti />}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -63,7 +63,7 @@ export default function AgentLeadWizard() {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-green-600" />
           </div>
-          <h3 className="text-2xl font-bold mb-4 text-[#1a1a2e]">
+          <h3 className="text-2xl font-bold mb-4 text-[#18262d]">
             Thank you, {submittedData.name}!
           </h3>
           <p className="mb-6 text-gray-600">
@@ -73,7 +73,7 @@ export default function AgentLeadWizard() {
             href="https://instagram.com/spanishconveyancing"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#c9a227] hover:underline"
+            className="inline-flex items-center gap-2 text-[#b48655] hover:underline"
           >
             Follow us on Instagram
           </a>
@@ -83,13 +83,13 @@ export default function AgentLeadWizard() {
   }
 
   return (
-    <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+    <div className="lead-wizard p-6 md:p-8">
       {/* Progress Steps */}
       <div className="flex items-center justify-center mb-8">
         <div className="flex items-center gap-4">
-          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${step >= 1 ? 'bg-[#c9a227] text-white' : 'bg-gray-200 text-gray-500'}`}>1</div>
-          <div className={`w-16 h-1 ${step >= 2 ? 'bg-[#c9a227]' : 'bg-gray-200'}`} />
-          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${step >= 2 ? 'bg-[#c9a227] text-white' : 'bg-gray-200 text-gray-500'}`}>2</div>
+          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${step >= 1 ? 'bg-[#b48655] text-white' : 'bg-gray-200 text-gray-500'}`}>1</div>
+          <div className={`w-16 h-1 ${step >= 2 ? 'bg-[#b48655]' : 'bg-gray-200'}`} />
+          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${step >= 2 ? 'bg-[#b48655] text-white' : 'bg-gray-200 text-gray-500'}`}>2</div>
         </div>
       </div>
 
@@ -103,7 +103,7 @@ export default function AgentLeadWizard() {
               exit={{ opacity: 0, x: -20 }}
               className="space-y-4"
             >
-              <h3 className="text-xl font-bold mb-6 text-[#1a1a2e]">
+              <h3 className="font-display text-3xl font-medium mb-6 text-[#18262d]">
                 Your Details
               </h3>
               
@@ -174,7 +174,7 @@ export default function AgentLeadWizard() {
               exit={{ opacity: 0, x: -20 }}
               className="space-y-4"
             >
-              <h3 className="text-xl font-bold mb-6 text-[#1a1a2e]">
+              <h3 className="font-display text-3xl font-medium mb-6 text-[#18262d]">
                 When should we call?
               </h3>
 
@@ -184,18 +184,18 @@ export default function AgentLeadWizard() {
                     key={option}
                     className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition-colors ${
                       getValues('callbackPreference') === option
-                        ? 'border-[#c9a227] bg-[#c9a227]/10'
-                        : 'border-gray-200 hover:border-[#c9a227]/50'
+                        ? 'border-[#b48655] bg-[#b48655]/10'
+                        : 'border-gray-200 hover:border-[#b48655]/50'
                     }`}
                   >
                     <input
                       {...register('callbackPreference')}
                       type="radio"
                       value={option}
-                      className="w-5 h-5 text-[#c9a227] focus:ring-[#c9a227]"
+                      className="w-5 h-5 text-[#b48655] focus:ring-[#b48655]"
                     />
-                    <Clock size={20} className="text-[#c9a227]" />
-                    <span className="text-[#1a1a2e]">
+                    <Clock size={20} className="text-[#b48655]" />
+                    <span className="text-[#18262d]">
                       {callbackLabels[option]}
                     </span>
                   </label>
@@ -231,18 +231,15 @@ export default function AgentLeadWizard() {
 }
 
 function Confetti() {
-  const [pieces, setPieces] = useState<Array<{ id: number; left: number; color: string; delay: number }>>([]);
-
-  useEffect(() => {
-    const colors = ['#c9a227', '#d4af37', '#1a1a2e', '#4ade80', '#f472b6'];
-    const newPieces = Array.from({ length: 50 }, (_, i) => ({
+  const [pieces] = useState<Array<{ id: number; left: number; color: string; delay: number }>>(() => {
+    const colors = ['#b48655', '#c29562', '#18262d', '#4ade80', '#f472b6'];
+    return Array.from({ length: 50 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       color: colors[Math.floor(Math.random() * colors.length)],
       delay: Math.random() * 0.5,
     }));
-    setPieces(newPieces);
-  }, []);
+  });
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50">

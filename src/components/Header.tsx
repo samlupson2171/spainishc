@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import BrandLockup from './BrandLockup';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -16,19 +16,16 @@ export default function Header() {
 
   return (
     <>
-      {/* Main Header */}
-      <header className="sticky top-0 bg-white z-50 shadow-sm">
+      <header className="site-header">
         <div className="r-container">
-          <nav className="flex items-center justify-between py-4">
-            <Link href="/" className="flex items-center">
-              <Image src="/images/newlogo.png" alt="Spanish Conveyancing" width={260} height={65} className="h-16 w-auto" />
-            </Link>
+          <nav className="site-nav" aria-label="Main navigation">
+            <BrandLockup />
 
             {/* Desktop Nav */}
-            <ul className="hidden lg:flex items-center gap-8">
+            <ul className="site-nav__links">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-[#1a1a2e] hover:text-[#c9a227] transition-colors font-medium">
+                  <Link href={item.href} className="site-nav__link">
                     {item.label}
                   </Link>
                 </li>
@@ -37,7 +34,7 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-[#1a1a2e] p-2"
+              className="site-nav__toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -45,15 +42,14 @@ export default function Header() {
             </button>
           </nav>
 
-          {/* Mobile Nav */}
           {mobileMenuOpen && (
-            <div className="lg:hidden pb-4">
-              <ul className="flex flex-col gap-4">
+            <div className="site-nav__mobile">
+              <ul>
                 {navItems.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-[#1a1a2e] hover:text-[#c9a227] transition-colors block py-2"
+                      className="site-nav__mobile-link"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}

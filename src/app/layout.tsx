@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400", "500", "600"],
+});
 
 export const metadata: Metadata = {
-  title: "Spanish Conveyancing | Costa del Sol Lawyer Referrals for Estate Agents",
-  description: "Partner with vetted Spanish conveyancing lawyers on the Costa del Sol. Earn 20-25% commission on referrals. 36,806 properties sold in Malaga province in 2025.",
-  keywords: "Costa del Sol conveyancing lawyers for agents, Spanish property lawyers, estate agent referrals, Marbella conveyancing",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://spanishconveyancing.es"),
+  title: "Spanish Conveyancing | Bespoke Property Lawyers in Spain",
+  description: "Trusted, multilingual Spanish property lawyers providing bespoke conveyancing support from legal checks to final registration.",
+  keywords: "Spanish property lawyers, conveyancing Spain, Costa del Sol property lawyer, buying property in Spain, Marbella conveyancing",
   openGraph: {
-    title: "Spanish Conveyancing | Costa del Sol Lawyer Referrals for Estate Agents",
-    description: "Partner with vetted Spanish conveyancing lawyers on the Costa del Sol. Earn 20-25% commission on referrals. 36,806 properties sold in Malaga province in 2025.",
+    title: "Spanish Conveyancing | Bespoke Property Lawyers in Spain",
+    description: "Your property. Our expertise. Total peace of mind. Bespoke legal support for buying property in Spain.",
     images: [
       {
         url: "/images/ogimage.jpg",
@@ -24,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Spanish Conveyancing | Costa del Sol Lawyer Referrals for Estate Agents",
-    description: "Partner with vetted Spanish conveyancing lawyers on the Costa del Sol. Earn 20-25% commission on referrals.",
+    title: "Spanish Conveyancing | Bespoke Property Lawyers in Spain",
+    description: "Your property. Our expertise. Total peace of mind. Bespoke legal support for buying property in Spain.",
     images: ["/images/ogimage.jpg"],
   },
 };
@@ -51,7 +57,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${cormorant.variable}`}>
         {children}
       </body>
     </html>

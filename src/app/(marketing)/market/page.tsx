@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import LeadWizard from '@/components/LeadWizard';
+import PageHero from '@/components/PageHero';
+import EditableText from '@/components/content/EditableText';
 import { TrendingUp, TrendingDown, Users, Building, ArrowRight } from 'lucide-react';
 
 export const metadata = {
@@ -28,55 +30,42 @@ const buyerNationalities = [
 export default function MarketPage() {
   return (
     <>
-      {/* Hero Banner */}
-      <section className="relative h-[50vh] flex items-center" style={{ backgroundImage: 'url(/images/flags-of-spain-and-autonomous-community-catalonia-2026-01-06-10-31-37-utc.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="bg-overlay" />
-        <div className="r-container relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Market Insights</h1>
-          <nav className="text-white/80">
-            <Link href="/" className="hover:text-[#c9a227]">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#c9a227]">Market Insights</span>
-          </nav>
-        </div>
-      </section>
+      <PageHero contentKey="market.hero.title" title="A market shaped by international ambition." label="Market Insights" image="/images/flags-of-spain-and-autonomous-community-catalonia-2026-01-06-10-31-37-utc.jpg" />
 
       {/* Intro */}
       <section className="section">
         <div className="r-container">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-[#c9a227] font-medium mb-2">2025-26 Data</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a1a2e]">
-              Costa del Sol: Europe&apos;s <span className="text-[#c9a227]">Hottest</span> Property Market
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Malaga led Andalucia with 1-in-4 regional sales. Limited supply + foreign influx = agent opportunity.
-            </p>
+            <EditableText as="p" className="text-[#b48655] font-medium mb-2" contentKey="market.intro.eyebrow" defaultValue="2025-26 Data" />
+            <EditableText as="h2" className="text-3xl md:text-4xl font-bold mb-6 text-[#18262d]" contentKey="market.intro.title" defaultValue="Costa del Sol: Europe's Hottest Property Market">
+              Costa del Sol: Europe&apos;s <span className="text-[#b48655]">Hottest</span> Property Market
+            </EditableText>
+            <EditableText as="p" className="text-gray-600 text-lg" contentKey="market.intro.copy" defaultValue="Malaga led Andalucia with 1-in-4 regional sales. Limited supply + foreign influx = agent opportunity." />
           </div>
         </div>
       </section>
 
       {/* Key Stats */}
-      <section className="bg-[#1a1a2e] py-16">
+      <section className="bg-[#18262d] py-16">
         <div className="r-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-4xl font-bold text-[#c9a227]">36,806</p>
+              <p className="text-4xl font-bold text-[#b48655]">36,806</p>
               <p className="text-white mt-2">Malaga Province Sales</p>
-              <p className="text-[#c9a227] text-sm">+4.27% YoY</p>
+              <p className="text-[#b48655] text-sm">+4.27% YoY</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-[#c9a227]">85%</p>
+              <p className="text-4xl font-bold text-[#b48655]">85%</p>
               <p className="text-white mt-2">Foreign Transactions</p>
               <p className="text-gray-400 text-sm">Andalucia region</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-[#c9a227]">€350k</p>
+              <p className="text-4xl font-bold text-[#b48655]">€350k</p>
               <p className="text-white mt-2">Avg Costa del Sol</p>
               <p className="text-gray-400 text-sm">€800k in Marbella</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-[#c9a227]">6,000+</p>
+              <p className="text-4xl font-bold text-[#b48655]">6,000+</p>
               <p className="text-white mt-2">Active Autonomos</p>
               <p className="text-gray-400 text-sm">3,500+ on Costa</p>
             </div>
@@ -88,14 +77,14 @@ export default function MarketPage() {
       <section className="section">
         <div className="r-container">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-6 text-[#1a1a2e]">
-              Golden Triangle <span className="text-[#c9a227]">Sales Data</span> Q1-Q3
-            </h3>
+            <EditableText as="h3" className="text-2xl font-bold mb-6 text-[#18262d]" contentKey="market.sales.title" defaultValue="Golden Triangle Sales Data Q1-Q3">
+              Golden Triangle <span className="text-[#b48655]">Sales Data</span> Q1-Q3
+            </EditableText>
             
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-[#1a1a2e] text-white">
+                  <tr className="bg-[#18262d] text-white">
                     <th className="px-6 py-4 text-left">Area</th>
                     <th className="px-6 py-4 text-right">Q1-Q3 2024</th>
                     <th className="px-6 py-4 text-right">Q1-Q3 2025</th>
@@ -128,23 +117,21 @@ export default function MarketPage() {
         <div className="r-container">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-[#c9a227] font-medium mb-2">Buyer Demographics</p>
-              <h3 className="text-2xl font-bold mb-6 text-[#1a1a2e]">
-                Top <span className="text-[#c9a227]">Buyer Nationalities</span>
-              </h3>
-              <p className="text-gray-600 mb-8">
-                Foreigners account for 85% of Andalucia transactions; 33.71% in Malaga (higher in luxury areas).
-              </p>
+              <EditableText as="p" className="text-[#b48655] font-medium mb-2" contentKey="market.buyers.eyebrow" defaultValue="Buyer Demographics" />
+              <EditableText as="h3" className="text-2xl font-bold mb-6 text-[#18262d]" contentKey="market.buyers.title" defaultValue="Top Buyer Nationalities">
+                Top <span className="text-[#b48655]">Buyer Nationalities</span>
+              </EditableText>
+              <EditableText as="p" className="text-gray-600 mb-8" contentKey="market.buyers.copy" defaultValue="Foreigners account for 85% of Andalucia transactions; 33.71% in Malaga (higher in luxury areas)." />
 
               <div className="space-y-4">
                 {buyerNationalities.map((buyer, i) => (
                   <div key={i} className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
                     <div className="flex items-center gap-3">
-                      <Users className="text-[#c9a227]" size={20} />
+                      <Users className="text-[#b48655]" size={20} />
                       <span className="font-medium">{buyer.country}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="font-bold text-[#c9a227]">{buyer.percentage}%</span>
+                      <span className="font-bold text-[#b48655]">{buyer.percentage}%</span>
                       {buyer.trend === 'up' && (
                         <TrendingUp className="text-green-600" size={16} />
                       )}
@@ -158,34 +145,28 @@ export default function MarketPage() {
             </div>
 
             <div>
-              <p className="text-[#c9a227] font-medium mb-2">Market Highlights</p>
-              <h3 className="text-2xl font-bold mb-6 text-[#1a1a2e]">
-                Why <span className="text-[#c9a227]">Now?</span>
-              </h3>
+              <EditableText as="p" className="text-[#b48655] font-medium mb-2" contentKey="market.highlights.eyebrow" defaultValue="Market Highlights" />
+              <EditableText as="h3" className="text-2xl font-bold mb-6 text-[#18262d]" contentKey="market.highlights.title" defaultValue="Why Now?">
+                Why <span className="text-[#b48655]">Now?</span>
+              </EditableText>
 
               <div className="space-y-6">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <Building className="text-[#c9a227] mb-3" size={28} />
-                  <h4 className="font-bold mb-2">Growing Agent Network</h4>
-                  <p className="text-gray-600">
-                    6k+ autonomos (3.5k+ on Costa), new shops opening monthly in Marbella. Digital nomads reshaping agencies.
-                  </p>
+                  <Building className="text-[#b48655] mb-3" size={28} />
+                  <EditableText as="h4" className="font-bold mb-2" contentKey="market.highlights.0.title" defaultValue="Growing Agent Network" />
+                  <EditableText as="p" className="text-gray-600" contentKey="market.highlights.0.copy" defaultValue="6k+ autonomos (3.5k+ on Costa), new shops opening monthly in Marbella. Digital nomads reshaping agencies." />
                 </div>
 
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <TrendingUp className="text-[#c9a227] mb-3" size={28} />
-                  <h4 className="font-bold mb-2">Price Premium</h4>
-                  <p className="text-gray-600">
-                    Prices 3-9% above national average. Average Costa del Sol €350k, Marbella €800k.
-                  </p>
+                  <TrendingUp className="text-[#b48655] mb-3" size={28} />
+                  <EditableText as="h4" className="font-bold mb-2" contentKey="market.highlights.1.title" defaultValue="Price Premium" />
+                  <EditableText as="p" className="text-gray-600" contentKey="market.highlights.1.copy" defaultValue="Prices 3-9% above national average. Average Costa del Sol €350k, Marbella €800k." />
                 </div>
 
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <Users className="text-[#c9a227] mb-3" size={28} />
-                  <h4 className="font-bold mb-2">International Demand</h4>
-                  <p className="text-gray-600">
-                    46% of Malaga&apos;s autonomo agents are foreign-born—your competition is international.
-                  </p>
+                  <Users className="text-[#b48655] mb-3" size={28} />
+                  <EditableText as="h4" className="font-bold mb-2" contentKey="market.highlights.2.title" defaultValue="International Demand" />
+                  <EditableText as="p" className="text-gray-600" contentKey="market.highlights.2.copy" defaultValue="46% of Malaga's autonomo agents are foreign-born—your competition is international." />
                 </div>
               </div>
             </div>
@@ -198,13 +179,11 @@ export default function MarketPage() {
         <div className="r-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-[#c9a227] font-medium mb-2">Partner Today</p>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a1a2e]">
-                Capitalize on the <span className="text-[#c9a227]">Boom</span>
-              </h2>
-              <p className="text-gray-600 mb-6">
-                With 36,806 sales in Malaga province and rising foreign demand, now is the time to partner with vetted conveyancing lawyers.
-              </p>
+              <EditableText as="p" className="text-[#b48655] font-medium mb-2" contentKey="market.cta.eyebrow" defaultValue="Partner Today" />
+              <EditableText as="h2" className="text-3xl md:text-4xl font-bold mb-6 text-[#18262d]" contentKey="market.cta.title" defaultValue="Capitalize on the Boom">
+                Capitalize on the <span className="text-[#b48655]">Boom</span>
+              </EditableText>
+              <EditableText as="p" className="text-gray-600 mb-6" contentKey="market.cta.copy" defaultValue="With 36,806 sales in Malaga province and rising foreign demand, now is the time to partner with vetted conveyancing lawyers." />
               <Link href="/agents" className="btn-accent inline-flex items-center gap-2">
                 For Agents <ArrowRight size={18} />
               </Link>
