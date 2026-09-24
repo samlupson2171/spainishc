@@ -35,13 +35,9 @@ a { color: inherit; }
 .btn-accent:hover { background: var(--bronze-deep); transform: translateY(-1px); }
 .btn-white-accent:hover { background: var(--bronze); color: white; }
 
-.brand-lockup { display: inline-flex; align-items: center; gap: .85rem; text-decoration: none; }
-.brand-lockup__mark { width: 4.25rem; height: auto; flex: 0 0 auto; }
-.brand-lockup__copy { display: flex; flex-direction: column; line-height: 1; }
-.brand-lockup__name { font-size: 1.02rem; letter-spacing: .3em; }
-.brand-lockup__name--second { margin-top: .35rem; font-size: .76rem; letter-spacing: .28em; }
-.brand-lockup__tagline { margin-top: .45rem; font-size: .43rem; letter-spacing: .13em; }
-.brand-lockup--compact .brand-lockup__mark { width: 3.4rem; }
+.brand-lockup { display: inline-block; text-decoration: none; }
+.brand-lockup__logo { display: block; width: 20rem; max-width: 100%; height: auto; }
+.brand-lockup--compact .brand-lockup__logo { width: 16rem; }
 
 .editable-text { position: relative; max-width: 100%; outline: 1px dashed transparent; outline-offset: .35rem; transition: outline-color .2s ease; }
 .editable-text > :not(button):not(.editable-text__form) { white-space: pre-line; }
@@ -183,10 +179,7 @@ a { color: inherit; }
 }
 
 @media (max-width: 520px) {
-  .brand-lockup__mark { width: 3.25rem; }
-  .brand-lockup__name { font-size: .8rem; }
-  .brand-lockup__name--second { font-size: .59rem; }
-  .brand-lockup__tagline { font-size: .34rem; }
+  .brand-lockup__logo { width: 15rem; }
   .site-nav { min-height: 5.25rem; }
   .home-hero__visual { min-height: 28rem; }
   .home-hero__frame { inset: 1rem 0 0; }
